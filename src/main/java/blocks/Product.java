@@ -22,7 +22,6 @@ public interface Product extends AtlasWebElement<Product> {
     //old price on search results page option2:
     //*[@id='center_column']//div[1][@class='content_price']/span[@class='old-price product-price']
 
-
     @FindBy(".//div[1]/*[@class='old-price product-price']")
     AtlasWebElement productPriceOld();
 
