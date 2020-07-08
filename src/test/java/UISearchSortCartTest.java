@@ -1,7 +1,14 @@
-package com;
-
 import core.BaseTest;
 //import org.junit.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+
 import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
 import steps.HomePageSteps;
@@ -11,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UISearchSortCartTest extends BaseTest {
-
     @Test(dataProvider = "searchQuery")
     public void searchTest(String query) throws InterruptedException {
         // 1. Открываем сайт http://automationpractice.com/

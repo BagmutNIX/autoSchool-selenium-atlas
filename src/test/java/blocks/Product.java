@@ -1,7 +1,10 @@
 package blocks;
 
 import io.qameta.atlas.webdriver.AtlasWebElement;
+
 import io.qameta.atlas.webdriver.extension.FindBy;
+import org.openqa.selenium.WebDriver;
+
 
 public interface Product extends AtlasWebElement<Product> {
 
@@ -25,18 +28,11 @@ public interface Product extends AtlasWebElement<Product> {
     @FindBy(".//div[1]/*[@class='price product-price']")
     AtlasWebElement productPriceActual();
 
-   /*default List<Double> getPrice() {
-
-        List<Double> productPrice = new ArrayList<>();
-
-        productPrice.forEach(product -> {
-            String price = product.should(isDisplayed()).productPriceActual().getText().replace("$", "");
-            try {
-                price = product.should(isDisplayed()).productPriceOld().getText().replace("$", "");
-            } catch (Exception ex) {
-            }
-            productPrice.add(Double.valueOf(price));
-        });
+    default Double getPrice() {
+        Double productPrice;
+        productPrice = Double.valueOf(productPriceActual().getText().replace("$", ""));
+        try {productPrice = Double.valueOf(productPriceOld().getText().replace("$", ""));}
+        catch (Exception ex) {}
         return productPrice;
-    }*/
+    }
 }

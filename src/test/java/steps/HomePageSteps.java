@@ -1,7 +1,9 @@
 package steps;
 
 import io.qameta.allure.Step;
+import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import pages.BasePage;
 
 import io.qameta.atlas.core.Atlas;
@@ -14,15 +16,19 @@ public class HomePageSteps {
 
     private Atlas atlas;
 
-    public HomePageSteps(WebDriver driver) {
-        this.driver = driver;
+    public Actions getActions() {
+        return actions;
     }
 
-    //private String query;
+    private Actions actions;
 
-    //public String getQuery() {
-    //return query;
-    //}
+    public HomePageSteps(WebDriver driver) {
+        this.driver = driver;
+        atlas = new Atlas(new WebDriverConfiguration(driver));
+        //getAtlas().create(getDriver(), pageClass);
+        actions = new Actions(driver);
+    }
+
 
     // 2. В поле поиска вводим ключевое слово query и нажимаем значок поиска (лупу)
     @Step

@@ -1,8 +1,7 @@
-package com.automationpracticeold;
+package automationpracticeold;
 
 import core.BaseTest;
 import com.google.common.collect.Ordering;
-import com.sun.org.glassfish.gmbal.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -15,7 +14,7 @@ import java.util.List;
 
 public class UISearchSortCartTestOld extends BaseTest {
 
-    @Description("Perform tests: search, sort, add to cart")
+    //@Description("Perform tests: search, sort, add to cart")
     //@Parameters(value = {"Dress", "t-shirt", "Summer"})
     @Test(dataProvider = "searchQueryDataProvider")
     public void uiSearchSortCartTest(String query) throws InterruptedException {

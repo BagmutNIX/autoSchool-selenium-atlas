@@ -2,7 +2,9 @@ package steps;
 
 import io.qameta.allure.Step;
 
+import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import pages.CartPage;
 
@@ -11,12 +13,22 @@ import io.qameta.atlas.core.Atlas;
 
 public class CartPageSteps {
 
+
     private WebDriver driver;
 
     private Atlas atlas;
 
+    public Actions getActions() {
+        return actions;
+    }
+
+    private Actions actions;
+
     public CartPageSteps(WebDriver driver) {
         this.driver = driver;
+        atlas = new Atlas(new WebDriverConfiguration(driver));
+        //getAtlas().create(getDriver(), pageClass);
+        actions = new Actions(driver);
     }
 
     // 8. Открываем корзину и сравниваем название и цену в колонке "Total" у товара,
