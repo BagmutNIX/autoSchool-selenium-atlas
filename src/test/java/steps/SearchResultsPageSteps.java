@@ -52,8 +52,7 @@ public class SearchResultsPageSteps {
     // 4. открываем дропдаун сортировки и выбираем опцию 'Price: Highest first'
     @Step
     public SearchResultsPageSteps sortByPriceDesc() {
-        onSearchResultsPage().sortDropdown().click();
-        onSearchResultsPage().sortPriceDesc().click();
+        onSearchResultsPage().sortHighPrice();
         return this;
     }
 
