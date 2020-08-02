@@ -104,6 +104,7 @@ public class SearchResultsPageSteps {
         Actions action = new Actions(driver);
         List<Product> productList = onSearchResultsPage().productList();
         action.moveToElement(productList.get(0)).moveToElement(onSearchResultsPage().addToCartBtn()).click().build().perform();
+        onSearchResultsPage().proceedToCheckoutBtn().click();
         return new CartPageSteps(driver);
     }
 
