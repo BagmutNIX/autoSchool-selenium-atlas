@@ -1,6 +1,7 @@
-package steps;
+package com.steps;
 
-import blocks.Product;
+import com.blocks.Product;
+import com.pages.SearchResultsPage;
 import io.qameta.allure.Step;
 import io.qameta.atlas.core.Atlas;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
@@ -9,14 +10,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import pages.SearchResultsPage;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static matchers.BaseElementMatchers.isDisplayed;
+import static com.matchers.BaseElementMatchers.isDisplayed;
 
 public class SearchResultsPageSteps {
 

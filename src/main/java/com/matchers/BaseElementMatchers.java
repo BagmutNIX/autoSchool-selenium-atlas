@@ -1,4 +1,4 @@
-package matchers;
+package com.matchers;
 
 import org.hamcrest.Matcher;
 import org.openqa.selenium.WebElement;

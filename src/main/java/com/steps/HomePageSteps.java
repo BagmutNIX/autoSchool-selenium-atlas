@@ -1,14 +1,14 @@
-package steps;
+package com.steps;
 
+import com.pages.BasePage;
 import io.qameta.allure.Step;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import pages.BasePage;
 
 import io.qameta.atlas.core.Atlas;
 
-import static matchers.BaseElementMatchers.isDisplayed;
+import static com.matchers.BaseElementMatchers.isDisplayed;
 
 public class HomePageSteps {
 

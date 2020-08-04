@@ -1,13 +1,10 @@
-package pages;
+package com.pages;
 
-import blocks.Product;
+import com.blocks.Product;
 import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.ElementsCollection;
 import io.qameta.atlas.webdriver.WebPage;
 import io.qameta.atlas.webdriver.extension.FindBy;
-
-import javax.naming.directory.SearchResult;
-import java.util.Collection;
 
 public interface SearchResultsPage extends WebPage {
 

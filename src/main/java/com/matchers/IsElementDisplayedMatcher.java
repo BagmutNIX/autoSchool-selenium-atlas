@@ -1,4 +1,4 @@
-package matchers;
+package com.matchers;
 
 import org.hamcrest.Description;
 import org.hamcrest.Factory;

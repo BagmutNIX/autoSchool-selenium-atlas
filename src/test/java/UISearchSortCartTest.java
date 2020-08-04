@@ -1,18 +1,11 @@
-import core.BaseTest;
+import com.core.BaseTest;
 //import org.junit.Test;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 
 
 import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
-import steps.HomePageSteps;
-import steps.SearchResultsPageSteps;
+import com.steps.HomePageSteps;
+import com.steps.SearchResultsPageSteps;
 
 import java.util.ArrayList;
 import java.util.List;

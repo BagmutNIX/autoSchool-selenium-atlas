@@ -1,12 +1,12 @@
-package steps;
+package com.steps;
 
+import com.pages.CartPage;
 import io.qameta.allure.Step;
 
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import pages.CartPage;
 
 import io.qameta.atlas.core.Atlas;
 
