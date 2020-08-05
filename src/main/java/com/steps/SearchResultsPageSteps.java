@@ -1,6 +1,7 @@
 package com.steps;
 
 import com.blocks.Product;
+import com.pages.CartPage;
 import com.pages.SearchResultsPage;
 import io.qameta.allure.Step;
 import io.qameta.atlas.core.Atlas;
@@ -18,25 +19,9 @@ import java.util.stream.Collectors;
 
 import static com.matchers.BaseElementMatchers.isDisplayed;
 
-public class SearchResultsPageSteps {
-
-    private WebDriver driver;
-
-    //public Atlas getAtlas() { return atlas; }
-
-    private Atlas atlas;
-
-    public Actions getActions() {
-        return actions;
-    }
-
-    private Actions actions;
-
+public class SearchResultsPageSteps extends BaseSteps{
     public SearchResultsPageSteps(WebDriver driver) {
-        this.driver = driver;
-        atlas = new Atlas(new WebDriverConfiguration(driver));
-        //getAtlas().create(getDriver(), pageClass);
-        actions = new Actions(driver);
+        super(driver);
     }
 
     //private HomePageSteps query;
@@ -108,7 +93,6 @@ public class SearchResultsPageSteps {
         return new CartPageSteps(driver);
     }
 
-    private SearchResultsPage onSearchResultsPage() {
-        return atlas.create(driver, SearchResultsPage.class);
-    }
+    //private SearchResultsPage onSearchResultsPage() { return atlas.create(driver, SearchResultsPage.class); }
+    private SearchResultsPage onSearchResultsPage() { return on(SearchResultsPage.class); }
 }

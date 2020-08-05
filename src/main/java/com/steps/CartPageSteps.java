@@ -1,5 +1,6 @@
 package com.steps;
 
+import com.pages.BasePage;
 import com.pages.CartPage;
 import io.qameta.allure.Step;
 
@@ -11,24 +12,10 @@ import org.testng.Assert;
 import io.qameta.atlas.core.Atlas;
 
 
-public class CartPageSteps {
-
-
-    private WebDriver driver;
-
-    private Atlas atlas;
-
-    public Actions getActions() {
-        return actions;
-    }
-
-    private Actions actions;
-
+public class CartPageSteps extends BaseSteps {
+   // BaseSteps atlas = new BaseSteps();
     public CartPageSteps(WebDriver driver) {
-        this.driver = driver;
-        atlas = new Atlas(new WebDriverConfiguration(driver));
-        //getAtlas().create(getDriver(), pageClass);
-        actions = new Actions(driver);
+        super(driver);
     }
 
     // 8. Открываем корзину и сравниваем название и цену в колонке "Total" у товара,
@@ -58,8 +45,8 @@ public class CartPageSteps {
         return this;
     }
 
-    private CartPage onCartResultsPage() {
-        return atlas.create(driver, CartPage.class);
-    }
+    //private CartPage onCartResultsPage() { return atlas.create(driver, CartPage.class);}
+
+    private CartPage onCartResultsPage() { return on(CartPage.class); }
 
 }
