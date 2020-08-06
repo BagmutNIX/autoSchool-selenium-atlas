@@ -1,9 +1,9 @@
 package com.blocks;
 
+import com.matchers.IsElementDisplayedMatcher;
 import io.qameta.atlas.webdriver.AtlasWebElement;
 
 import io.qameta.atlas.webdriver.extension.FindBy;
-import org.openqa.selenium.WebDriver;
 
 
 public interface Product extends AtlasWebElement<Product> {
@@ -31,8 +31,19 @@ public interface Product extends AtlasWebElement<Product> {
     default Double getPrice() {
         Double productPrice;
         productPrice = Double.valueOf(productPriceActual().getText().replace("$", ""));
-        try {productPrice = Double.valueOf(productPriceOld().getText().replace("$", ""));}
-        catch (Exception ex) {}
+        try {
+            productPrice = Double.valueOf(productPriceOld().getText().replace("$", ""));
+        } catch (Exception ex) {
+        }
+        return productPrice;
+    }
+
+    default Double getPriceOption2() {
+        Double productPrice;
+        IsElementDisplayedMatcher matcher = new IsElementDisplayedMatcher();
+        if (matcher.existsElement(productPriceOld()))
+        productPrice = Double.valueOf(productPriceOld().getText().replace("$", ""));
+        else productPrice = Double.valueOf(productPriceActual().getText().replace("$", ""));
         return productPrice;
     }
 }

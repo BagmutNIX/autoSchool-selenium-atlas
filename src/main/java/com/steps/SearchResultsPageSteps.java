@@ -51,7 +51,7 @@ public class SearchResultsPageSteps extends BaseSteps{
 
         List<Double> productPrice = new ArrayList<>();
 
-        productPrice = productList.stream().map(Product::getPrice).collect(Collectors.toList());
+        productPrice = productList.stream().map(Product::getPriceOption2).collect(Collectors.toList());
 
         System.out.println("Product Prices: " + productPrice);
 

@@ -4,6 +4,7 @@ import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
@@ -47,5 +48,15 @@ public class IsElementDisplayedMatcher extends TypeSafeMatcher<WebElement> {
     @Factory
     public static Matcher<WebElement> isDisplayed(int timeout) {
         return new IsElementDisplayedMatcher(timeout);
+    }
+
+    public boolean existsElement(WebElement item) {
+        try {
+            boolean isDisplayed = false;
+            isDisplayed = item.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        return true;
     }
 }

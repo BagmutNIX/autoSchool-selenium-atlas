@@ -41,8 +41,8 @@ public class UISearchSortCartTest extends BaseTest {
         searchResultsPageSteps
                 .addToCart()
                 .checkName(expectedName)
-                .checkPrice(expectedPrice)
-                .deleteProduct();
+                .checkPrice(expectedPrice);
+                //.deleteProduct();
     }
 
     @DataProvider(name = "searchQuery")

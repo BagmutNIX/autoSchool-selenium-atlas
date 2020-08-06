@@ -4,7 +4,7 @@ import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.WebPage;
 import io.qameta.atlas.webdriver.extension.FindBy;
 
-public interface BasePage extends WebPage {
+public interface HomePage extends WebPage {
     @FindBy("//input[@id='search_query_top']")
     AtlasWebElement searchInput();
 
