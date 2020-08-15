@@ -29,21 +29,14 @@ public interface Product extends AtlasWebElement<Product> {
     AtlasWebElement productPriceActual();
 
     default Double getPrice() {
-        Double productPrice;
-        productPrice = Double.valueOf(productPriceActual().getText().replace("$", ""));
+        //Double productPrice;
+        AtlasWebElement productPriceMiddle;
         try {
-            productPrice = Double.valueOf(productPriceOld().getText().replace("$", ""));
+            productPriceMiddle = productPriceOld();
         } catch (Exception ex) {
+            productPriceMiddle = productPriceActual();
         }
-        return productPrice;
-    }
-
-    default Double getPriceOption2() {
-        Double productPrice;
-        IsElementDisplayedMatcher matcher = new IsElementDisplayedMatcher();
-        if (matcher.existsElement(productPriceOld()))
-        productPrice = Double.valueOf(productPriceOld().getText().replace("$", ""));
-        else productPrice = Double.valueOf(productPriceActual().getText().replace("$", ""));
+        Double productPrice = Double.valueOf(productPriceMiddle.getText().replace("$", ""));
         return productPrice;
     }
 }

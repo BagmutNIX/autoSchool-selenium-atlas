@@ -37,7 +37,8 @@ public class SearchResultsPageSteps extends BaseSteps{
     // 4. открываем дропдаун сортировки и выбираем опцию 'Price: Highest first'
     @Step
     public SearchResultsPageSteps sortByPriceDesc() {
-        onSearchResultsPage().sortHighPrice();
+        onSearchResultsPage().sortDropdown().click();
+        onSearchResultsPage().sortPriceDesc().click();
         return this;
     }
 
@@ -51,7 +52,7 @@ public class SearchResultsPageSteps extends BaseSteps{
 
         List<Double> productPrice = new ArrayList<>();
 
-        productPrice = productList.stream().map(Product::getPriceOption2).collect(Collectors.toList());
+        productPrice = productList.stream().map(Product::getPrice).collect(Collectors.toList());
 
         System.out.println("Product Prices: " + productPrice);
 
