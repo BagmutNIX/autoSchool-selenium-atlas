@@ -28,15 +28,15 @@ public interface Product extends AtlasWebElement<Product> {
     @FindBy(".//div[1]/*[@class='price product-price']")
     AtlasWebElement productPriceActual();
 
+
     default Double getPrice() {
         //Double productPrice;
-        AtlasWebElement productPriceMiddle;
+        String priceMidle; //Пыталась сделать через AtlasWebElement productPriceMiddle, но не выщло, так и не поняла, почему именно
         try {
-            productPriceMiddle = productPriceOld();
+            priceMidle = productPriceOld().getText();
         } catch (Exception ex) {
-            productPriceMiddle = productPriceActual();
+            priceMidle = productPriceActual().getText();
         }
-        Double productPrice = Double.valueOf(productPriceMiddle.getText().replace("$", ""));
-        return productPrice;
+        return Double.valueOf(priceMidle.replace("$", ""));
     }
 }

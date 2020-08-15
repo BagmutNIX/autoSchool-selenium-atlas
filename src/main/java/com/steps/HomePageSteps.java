@@ -4,9 +4,7 @@ import com.pages.HomePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 
-import static com.matchers.BaseElementMatchers.isDisplayed;
-
-public class HomePageSteps extends BaseSteps{
+public class HomePageSteps extends BaseSteps {
 
     public HomePageSteps(WebDriver driver) {
         super(driver);
@@ -21,9 +19,9 @@ public class HomePageSteps extends BaseSteps{
         return new SearchResultsPageSteps(driver);
     }
 
-    // private BasePage onHomePage() { return atlas.create(driver, BasePage.class); }
-
-    private HomePage onHomePage() { return on(HomePage.class); }
-
+    private HomePage onHomePage() {
+        return on(HomePage.class);
     }
+
+}
 

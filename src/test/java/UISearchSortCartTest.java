@@ -7,8 +7,8 @@ import org.testng.annotations.DataProvider;
 import com.steps.HomePageSteps;
 import com.steps.SearchResultsPageSteps;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UISearchSortCartTest extends BaseTest {
     @Test(dataProvider = "searchQuery")
@@ -21,7 +21,7 @@ public class UISearchSortCartTest extends BaseTest {
 
         System.out.println(query);
 
-
+        Map<String, String> actualHashMap = new HashMap<>();
 
         homePageSteps
                 // 2. В поле поиска вводим ключевое слово query и нажимаем значок поиска (лупу)
@@ -32,31 +32,17 @@ public class UISearchSortCartTest extends BaseTest {
                 .sortByPriceDesc()
                 // 5. Проверяем, что элементы отсортированы в соответствии с выбранной опцией (сейчас сортировка идёт
                 // по старой цене - если у товара есть скидка, нужно смотреть на старую цену)
-                .checkSortPricesDesc();
-
-        String expectedName = searchResultsPageSteps.getNameOfFirstproduct();
-        String expectedPrice = searchResultsPageSteps.getPriceOfFirstproduct();
-        System.out.println("Expected Name: " + expectedName + "; Expected Price: " + expectedPrice);
-
-        searchResultsPageSteps
+                .checkSortPricesDesc()
+                .getNameAndPriceOfFirstproduct(actualHashMap)
+                //String expectedName = searchResultsPageSteps.getNameOfFirstproduct();
+                //String expectedPrice = searchResultsPageSteps.getPriceOfFirstproduct();
                 .addToCart()
-                .checkName(expectedName)
-                .checkPrice(expectedPrice);
-                //.deleteProduct();
+                .checkNameAndPrice(actualHashMap);
+        System.out.println("Expected Name: " + actualHashMap.toString());
     }
 
     @DataProvider(name = "searchQuery")
-    public Object[][] searchQuery() {
-        List<String> data = new ArrayList<>();
-        data.add("Summer");
-        data.add("t-shirt");
-        data.add("Dress");
-
-        Object[][] result = new Object[data.size()][3];
-        for (int i = 0; i < data.size(); i++) {
-            result[i] = data.get(i).split(",");
-        }
-        System.out.println(result.toString());
-        return result;
+    public Object[] searchQuery() {
+        return new String[]{"Summer", "t-shirt", "Dress"};
     }
 }

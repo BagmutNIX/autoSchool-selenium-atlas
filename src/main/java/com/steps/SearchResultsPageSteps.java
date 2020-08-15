@@ -1,25 +1,18 @@
 package com.steps;
 
 import com.blocks.Product;
-import com.pages.CartPage;
 import com.pages.SearchResultsPage;
 import io.qameta.allure.Step;
-import io.qameta.atlas.core.Atlas;
-import io.qameta.atlas.webdriver.WebDriverConfiguration;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.matchers.BaseElementMatchers.isDisplayed;
 
-public class SearchResultsPageSteps extends BaseSteps{
+public class SearchResultsPageSteps extends BaseSteps {
     public SearchResultsPageSteps(WebDriver driver) {
         super(driver);
     }
@@ -84,6 +77,17 @@ public class SearchResultsPageSteps extends BaseSteps{
         return priceText;
     }
 
+    @Step
+    public SearchResultsPageSteps getNameAndPriceOfFirstproduct(Map<String, String> hashMap) {
+        List<Product> productList = onSearchResultsPage().productList();
+        //Map<String, String> hashMap = new HashMap<>();
+        //System.out.println("Product list size: " + productList.size());
+        String nameText = productList.get(0).should(isDisplayed()).productName().getText();
+        String priceText = productList.get(0).should(isDisplayed()).productPriceActual().getText();
+        hashMap.put(nameText, priceText);
+        return this;
+    }
+
     // 7. добавляем его в корзину
     @Step
     public CartPageSteps addToCart() {
@@ -94,6 +98,7 @@ public class SearchResultsPageSteps extends BaseSteps{
         return new CartPageSteps(driver);
     }
 
-    //private SearchResultsPage onSearchResultsPage() { return atlas.create(driver, SearchResultsPage.class); }
-    private SearchResultsPage onSearchResultsPage() { return on(SearchResultsPage.class); }
+    private SearchResultsPage onSearchResultsPage() {
+        return on(SearchResultsPage.class);
+    }
 }

@@ -6,9 +6,12 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class CartPageSteps extends BaseSteps {
-   // BaseSteps atlas = new BaseSteps();
+    // BaseSteps atlas = new BaseSteps();
     public CartPageSteps(WebDriver driver) {
         super(driver);
     }
@@ -33,15 +36,19 @@ public class CartPageSteps extends BaseSteps {
         return this;
     }
 
-    // Удаляем продукт из корзины для продолжения проверки других продуктов
     @Step
-    public CartPageSteps deleteProduct() {
-        onCartResultsPage().trashInCart().click();
+    public CartPageSteps checkNameAndPrice(Map<String, String> expectedHashMap) {
+        String productNameInCart = onCartResultsPage().productNameInCart().getText();
+        System.out.println("Name in cart: " + productNameInCart);
+        String productPriceInCart = onCartResultsPage().priceTotalInCart().getText();
+        System.out.println("Price in cart: " + productPriceInCart);
+        Map<String, String> actualHashMap = new HashMap<>();
+        actualHashMap.put(productNameInCart, productPriceInCart);
+        Assert.assertEquals(expectedHashMap, actualHashMap);
         return this;
     }
 
-    //private CartPage onCartResultsPage() { return atlas.create(driver, CartPage.class);}
-
-    private CartPage onCartResultsPage() { return on(CartPage.class); }
-
+    private CartPage onCartResultsPage() {
+        return on(CartPage.class);
+    }
 }

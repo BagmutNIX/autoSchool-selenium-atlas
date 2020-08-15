@@ -37,7 +37,4 @@ public interface SearchResultsPage extends WebPage {
 
     @FindBy("//*[@id='center_column']//div[1]/*[@class='old-price product-price']")
     AtlasWebElement oldPrice();
-
-   // @FindBy("id('s-results-list-atf')//li[contains(@id,'result')]")
-   // ExtendedList<SearchResult> searchResultList();
 }

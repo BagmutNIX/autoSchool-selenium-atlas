@@ -49,14 +49,4 @@ public class IsElementDisplayedMatcher extends TypeSafeMatcher<WebElement> {
     public static Matcher<WebElement> isDisplayed(int timeout) {
         return new IsElementDisplayedMatcher(timeout);
     }
-
-    public boolean existsElement(WebElement item) {
-        try {
-            boolean isDisplayed = false;
-            isDisplayed = item.isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-        return true;
-    }
 }
