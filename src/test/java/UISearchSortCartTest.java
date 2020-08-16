@@ -3,12 +3,13 @@ import com.steps.HomePageSteps;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class UISearchSortCartTest extends BaseTest {
     @Test(dataProvider = "searchQuery")
-    public void searchTest(String query) throws InterruptedException {
+    public void searchTest(String query) throws InterruptedException, IOException {
 
         HomePageSteps homePageSteps = new HomePageSteps(driver);
 

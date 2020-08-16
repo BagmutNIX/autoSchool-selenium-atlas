@@ -6,13 +6,14 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class CartPageSteps extends BaseSteps {
 
-    public CartPageSteps(WebDriver driver) {
+    public CartPageSteps(WebDriver driver) throws IOException {
         super(driver);
     }
 

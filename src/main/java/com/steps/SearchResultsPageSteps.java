@@ -7,13 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.matchers.BaseElementMatchers.isDisplayed;
 
 public class SearchResultsPageSteps extends BaseSteps {
-    public SearchResultsPageSteps(WebDriver driver) {
+    public SearchResultsPageSteps(WebDriver driver) throws IOException {
         super(driver);
     }
 
@@ -71,7 +72,7 @@ public class SearchResultsPageSteps extends BaseSteps {
 
     // 7. добавляем его в корзину
     @Step
-    public CartPageSteps addToCart() {
+    public CartPageSteps addToCart() throws IOException {
         Actions action = new Actions(driver);
         List<Product> productList = onSearchResultsPage().productList();
         action.moveToElement(productList.get(0)).moveToElement(onSearchResultsPage().addToCartBtn()).click().build().perform();
