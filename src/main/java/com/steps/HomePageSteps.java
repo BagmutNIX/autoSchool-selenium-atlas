@@ -8,8 +8,6 @@ import java.io.IOException;
 
 public class HomePageSteps extends BaseSteps {
 
-    //protected String baseUrl;
-
     public HomePageSteps(WebDriver driver) throws IOException {
         super(driver);
     }
@@ -25,7 +23,6 @@ public class HomePageSteps extends BaseSteps {
     // 2. В поле поиска вводим ключевое слово query и нажимаем значок поиска (лупу)
     @Step
     public SearchResultsPageSteps enterQueryToSearchInput(String query) throws IOException {
-        //this.query = query;
         onHomePage().searchInput().sendKeys(query);
         onHomePage().searchBtn().click();
         return new SearchResultsPageSteps(driver);

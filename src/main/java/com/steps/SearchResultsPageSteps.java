@@ -4,11 +4,13 @@ import com.blocks.Product;
 import com.pages.SearchResultsPage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.matchers.BaseElementMatchers.isDisplayed;
@@ -37,7 +39,6 @@ public class SearchResultsPageSteps extends BaseSteps {
 
     // 5. проверяем, что элементы отсортированы в соответствии с выбранной опцией (сейчас сортировка идёт по старой
     // цене - если у товара есть скидка, нужно смотреть на старую цену)
-
     @Step
     public SearchResultsPageSteps checkSortPricesDesc() {
 
