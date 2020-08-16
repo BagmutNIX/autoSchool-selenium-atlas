@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import static com.matchers.BaseElementMatchers.isDisplayed;
 
 public class SearchResultsPageSteps extends BaseSteps {
+
     public SearchResultsPageSteps(WebDriver driver) throws IOException {
         super(driver);
     }
@@ -73,9 +74,9 @@ public class SearchResultsPageSteps extends BaseSteps {
     // 7. добавляем его в корзину
     @Step
     public CartPageSteps addToCart() throws IOException {
-        Actions action = new Actions(driver);
+        //Actions action = new Actions(driver);
         List<Product> productList = onSearchResultsPage().productList();
-        action.moveToElement(productList.get(0)).moveToElement(onSearchResultsPage().addToCartBtn()).click().build().perform();
+        actions.moveToElement(productList.get(0)).moveToElement(onSearchResultsPage().addToCartBtn()).click().build().perform();
         onSearchResultsPage().proceedToCheckoutBtn().click();
         return new CartPageSteps(driver);
     }

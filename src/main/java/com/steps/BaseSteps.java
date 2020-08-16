@@ -18,11 +18,11 @@ public class BaseSteps {
 
     private Atlas atlas;
 
+    public Actions actions;
+
     public Actions getActions() {
         return actions;
     }
-
-    public Actions actions;
 
     public BaseSteps(WebDriver driver) throws IOException {
         this.driver = driver;
