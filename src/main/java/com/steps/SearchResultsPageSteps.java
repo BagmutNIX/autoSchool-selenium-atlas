@@ -57,7 +57,7 @@ public class SearchResultsPageSteps extends BaseSteps {
         for (int i = 0; i < productPriceSorted.size(); i++)
             System.out.println(productPriceSorted.get(i));
 
-        Assert.assertEquals(productPrice, productPriceSorted);
+        Assert.assertEquals(productPriceSorted, productPrice);
 
         return this;
     }
@@ -75,7 +75,6 @@ public class SearchResultsPageSteps extends BaseSteps {
     // 7. добавляем его в корзину
     @Step
     public CartPageSteps addToCart() throws IOException {
-        //Actions action = new Actions(driver);
         List<Product> productList = onSearchResultsPage().productList();
         actions.moveToElement(productList.get(0)).moveToElement(onSearchResultsPage().addToCartBtn()).click().build().perform();
         onSearchResultsPage().proceedToCheckoutBtn().click();
