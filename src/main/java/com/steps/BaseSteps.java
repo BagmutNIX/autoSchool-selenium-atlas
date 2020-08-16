@@ -29,8 +29,4 @@ public class BaseSteps {
     public <T extends WebPage> T on(Class<T> page) {
         return atlas.create(driver, page);
     }
-
-    //private BaseDataProvider dataProvider;
-
-
 }

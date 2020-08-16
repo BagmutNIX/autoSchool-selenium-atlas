@@ -80,8 +80,6 @@ public class SearchResultsPageSteps extends BaseSteps {
     @Step
     public SearchResultsPageSteps getNameAndPriceOfFirstproduct(Map<String, String> hashMap) {
         List<Product> productList = onSearchResultsPage().productList();
-        //Map<String, String> hashMap = new HashMap<>();
-        //System.out.println("Product list size: " + productList.size());
         String nameText = productList.get(0).should(isDisplayed()).productName().getText();
         String priceText = productList.get(0).should(isDisplayed()).productPriceActual().getText();
         hashMap.put(nameText, priceText);
