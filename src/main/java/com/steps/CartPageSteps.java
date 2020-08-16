@@ -11,7 +11,7 @@ import java.util.Map;
 
 
 public class CartPageSteps extends BaseSteps {
-    // BaseSteps atlas = new BaseSteps();
+
     public CartPageSteps(WebDriver driver) {
         super(driver);
     }
@@ -31,7 +31,7 @@ public class CartPageSteps extends BaseSteps {
     public CartPageSteps checkPrice(String priceFromSearchResults) {
         String productPriceInCart = onCartResultsPage().priceTotalInCart().getText();
         System.out.println("Price in cart: " + productPriceInCart);
-        //assertEquals(expected, actual);
+        //assertEquals(expected, actual); - this is a tip
         Assert.assertEquals(priceFromSearchResults, productPriceInCart);
         return this;
     }

@@ -57,5 +57,4 @@ public class HasTextMatcher extends TypeSafeMatcher<WebElement> {
     public static Matcher<WebElement> hasText(final String textMatcher, int timeout) {
         return new HasTextMatcher(textMatcher, timeout);
     }
-
 }

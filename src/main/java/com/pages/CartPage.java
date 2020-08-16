@@ -11,7 +11,4 @@ public interface CartPage extends WebPage {
 
     @FindBy("//td[@class='cart_total'][@data-title='Total']")
     AtlasWebElement priceTotalInCart();
-
-    @FindBy("//*[@class='icon-trash']")
-    AtlasWebElement trashInCart();
 }

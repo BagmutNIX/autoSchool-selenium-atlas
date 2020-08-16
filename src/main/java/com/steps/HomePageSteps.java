@@ -32,6 +32,5 @@ public class HomePageSteps extends BaseSteps {
     private HomePage onHomePage() {
         return on(HomePage.class);
     }
-
 }
 

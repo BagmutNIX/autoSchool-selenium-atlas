@@ -17,8 +17,6 @@ public class SearchResultsPageSteps extends BaseSteps {
         super(driver);
     }
 
-    //private HomePageSteps query;
-
     // 3. Проверяем, что над списком продуктов в надписи 'SEARCH' отображается наш поисковый запрос
     @Step
     public SearchResultsPageSteps checkSearchLabel(String query) {
@@ -47,7 +45,7 @@ public class SearchResultsPageSteps extends BaseSteps {
 
         productPrice = productList.stream().map(Product::getPrice).collect(Collectors.toList());
 
-        System.out.println("Product Prices: " + productPrice);
+        System.out.println("Product prices: " + productPrice);
 
         List<Double> productPriceSorted = new ArrayList<>(productPrice);
         Collections.sort(productPriceSorted, Collections.reverseOrder());
@@ -62,21 +60,6 @@ public class SearchResultsPageSteps extends BaseSteps {
     }
 
     // 6. Берем первый из найденных товаров и запоминаем его полное название и цену
-    @Step
-    public String getNameOfFirstproduct() {
-        List<Product> productList = onSearchResultsPage().productList();
-        //System.out.println("Product list size: " + productList.size());
-        String nameText = productList.get(0).should(isDisplayed()).productName().getText();
-        return nameText;
-    }
-
-    @Step
-    public String getPriceOfFirstproduct() {
-        List<Product> productList = onSearchResultsPage().productList();
-        String priceText = productList.get(0).should(isDisplayed()).productPriceActual().getText();
-        return priceText;
-    }
-
     @Step
     public SearchResultsPageSteps getNameAndPriceOfFirstproduct(Map<String, String> hashMap) {
         List<Product> productList = onSearchResultsPage().productList();
