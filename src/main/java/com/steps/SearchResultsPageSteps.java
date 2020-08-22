@@ -44,7 +44,7 @@ public class SearchResultsPageSteps extends BaseSteps {
 
         List<Product> productList = onSearchResultsPage().productList();
 
-        List<Double> productPrice = new ArrayList<>();
+        List<Double> productPrice;
 
         productPrice = productList.stream().map(Product::getPrice).collect(Collectors.toList());
 
@@ -54,8 +54,7 @@ public class SearchResultsPageSteps extends BaseSteps {
         Collections.sort(productPriceSorted, Collections.reverseOrder());
 
         System.out.println("Sorted prices:");
-        for (int i = 0; i < productPriceSorted.size(); i++)
-            System.out.println(productPriceSorted.get(i));
+        for (Double aDouble : productPriceSorted) System.out.println(aDouble);
 
         Assert.assertEquals(productPriceSorted, productPrice);
 
@@ -76,7 +75,7 @@ public class SearchResultsPageSteps extends BaseSteps {
     @Step
     public CartPageSteps addToCart() throws IOException {
         List<Product> productList = onSearchResultsPage().productList();
-        actions.moveToElement(productList.get(0)).moveToElement(onSearchResultsPage().addToCartBtn()).click().build().perform();
+        getActions().moveToElement(productList.get(0)).moveToElement(onSearchResultsPage().addToCartBtn()).click().build().perform();
         onSearchResultsPage().proceedToCheckoutBtn().click();
         return new CartPageSteps(driver);
     }
