@@ -67,7 +67,7 @@ public class SearchResultsPageSteps extends BaseSteps {
     public SearchResultsPageSteps getNameAndPriceOfFirstproduct(Map<String, String> hashMap) {
         List<Product> productList = onSearchResultsPage().productList();
         String nameText = productList.get(0).should(isDisplayed()).productName().getText();
-        String priceText = productList.get(0).should(isDisplayed()).productPriceActual().getText();
+        String priceText = productList.get(0).should(isDisplayed(), 470).productPriceActual().getText();
         hashMap.put(nameText, priceText);
         return this;
     }
@@ -76,7 +76,7 @@ public class SearchResultsPageSteps extends BaseSteps {
     @Step
     public CartPageSteps addToCart() throws IOException {
         List<Product> productList = onSearchResultsPage().productList();
-        actions.moveToElement(productList.get(0)).moveToElement(onSearchResultsPage().addToCartBtn()).click().build().perform();
+        getActions().moveToElement(productList.get(0)).moveToElement(onSearchResultsPage().addToCartBtn()).click().build().perform();
         onSearchResultsPage().proceedToCheckoutBtn().click();
         return new CartPageSteps(driver);
     }

@@ -18,7 +18,7 @@ public class BaseSteps {
 
     private Atlas atlas;
 
-    public Actions actions;
+    private Actions actions;
 
     public Actions getActions() {
         return actions;
