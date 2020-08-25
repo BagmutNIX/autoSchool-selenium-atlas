@@ -16,8 +16,7 @@ public interface Product extends AtlasWebElement<Product> {
 
 
     default Double getPrice() {
-        //Double productPrice;
-        String priceMidle; //Пыталась сделать через AtlasWebElement productPriceMiddle, но не выщло, так и не поняла, почему именно
+        String priceMidle;
         try {
             priceMidle = productPriceOld().getText();
         } catch (Exception ex) {

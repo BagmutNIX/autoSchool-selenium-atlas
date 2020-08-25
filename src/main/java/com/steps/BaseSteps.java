@@ -9,7 +9,6 @@ import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
 import java.util.Properties;
 
-//пока не юзaю этот класс. но я так понимаю, что должен быть всегда общий класс BaseSteps, от которого экстендятся остальнйе Steps
 public class BaseSteps {
 
     public WebDriver driver;
