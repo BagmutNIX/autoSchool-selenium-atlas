@@ -26,15 +26,7 @@ public class HasTextMatcher extends TypeSafeMatcher<WebElement> {
     public boolean matchesSafely(WebElement item) {
         long waitUntil = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(timeout);
         boolean matched = false;
-        while (System.currentTimeMillis() <= waitUntil && !matched) {
-            try {
-                matched = item.getText().contains(textMatcher);
-                Thread.sleep(250);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return matched;
+        return item.getText().contains(textMatcher);
     }
 
     @Override
@@ -57,5 +49,4 @@ public class HasTextMatcher extends TypeSafeMatcher<WebElement> {
     public static Matcher<WebElement> hasText(final String textMatcher, int timeout) {
         return new HasTextMatcher(textMatcher, timeout);
     }
-
 }

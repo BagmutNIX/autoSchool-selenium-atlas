@@ -11,10 +11,6 @@ public class BaseElementMatchers {
         return IsElementDisplayedMatcher.isDisplayed();
     }
 
-    public static Matcher<WebElement> isDisplayed(int timeout) {
-        return new IsElementDisplayedMatcher(timeout);
-    }
-
     public static Matcher<WebElement> hasText(String textMatcher) {
         return HasTextMatcher.hasText(textMatcher);
     }
