@@ -15,7 +15,7 @@ public class UISearchSortCartTest extends BaseTest {
 
         System.out.println(query);
 
-        Map<String, String> expectedHashMap = new HashMap<>();
+        Map<String, String> expectedNameAndPrice = new HashMap<>();
 
         homePageSteps
                 // 1. Открываем сайт http://automationpractice.com/
@@ -29,11 +29,11 @@ public class UISearchSortCartTest extends BaseTest {
                 // 5. Проверяем, что элементы отсортированы в соответствии с выбранной опцией (сейчас сортировка идёт
                 // по старой цене - если у товара есть скидка, нужно смотреть на старую цену)
                 .checkSortPricesDesc()
-                .getNameAndPriceOfFirstproduct(expectedHashMap)
+                .getNameAndPriceOfFirstproduct(expectedNameAndPrice)
                 // 6. Добавляем первый товар в корзину и проверяем название и цену товара в корзине
                 .addToCart()
-                .checkNameAndPrice(expectedHashMap);
-        System.out.println("Expected Product: " + expectedHashMap.toString());
+                .checkNameAndPrice(expectedNameAndPrice);
+        System.out.println("Expected Product: " + expectedNameAndPrice.toString());
     }
 
     @DataProvider(name = "searchQuery")
