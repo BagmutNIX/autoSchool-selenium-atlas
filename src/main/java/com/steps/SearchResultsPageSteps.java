@@ -63,11 +63,11 @@ public class SearchResultsPageSteps extends BaseSteps {
 
     // 6. Берем первый из найденных товаров и запоминаем его полное название и цену
     @Step
-    public SearchResultsPageSteps getNameAndPriceOfFirstproduct(Map<String, String> hashMap) {
+    public SearchResultsPageSteps getNameAndPriceOfFirstproduct(Map<String, String> nameAndPrice) {
         List<Product> productList = onSearchResultsPage().productList();
         String nameText = productList.get(0).should(isDisplayed()).productName().getText();
         String priceText = productList.get(0).should(isDisplayed(), 470).productPriceActual().getText();
-        hashMap.put(nameText, priceText);
+        nameAndPrice.put(nameText, priceText);
         return this;
     }
 

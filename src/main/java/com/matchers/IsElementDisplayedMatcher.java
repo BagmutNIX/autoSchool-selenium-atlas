@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class IsElementDisplayedMatcher extends TypeSafeMatcher<WebElement> {
+
     private int timeout = 10;
 
     public IsElementDisplayedMatcher() {
@@ -31,7 +32,7 @@ public class IsElementDisplayedMatcher extends TypeSafeMatcher<WebElement> {
                 e.printStackTrace();
             }
         }
-        return isDisplayed;
+        return item.isDisplayed();
     }
 
     @Override
