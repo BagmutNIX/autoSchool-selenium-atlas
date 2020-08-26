@@ -20,6 +20,7 @@ public class UISearchSortCartTest extends BaseTest {
         homePageSteps
                 // 1. Открываем сайт http://automationpractice.com/
                 .openHomePage()
+                .checkCartText("Carts")
                 // 2. В поле поиска вводим ключевое слово query и нажимаем значок поиска (лупу)
                 .enterQueryToSearchInput(query)
                 // 3. Проверяем, что над списком продуктов в надписи 'SEARCH' отображается наш поисковый запрос

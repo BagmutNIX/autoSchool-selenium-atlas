@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
+import static com.matchers.BaseElementMatchers.hasText;
+
 public class HomePageSteps extends BaseSteps {
 
     public HomePageSteps(WebDriver driver) throws IOException {
@@ -26,6 +28,13 @@ public class HomePageSteps extends BaseSteps {
         onHomePage().searchInput().sendKeys(query);
         onHomePage().searchBtn().click();
         return new SearchResultsPageSteps(driver);
+    }
+
+    @Step
+    public HomePageSteps checkCartText(String expectedText) {
+        //String actualText =
+        onHomePage().cartText().should(hasText("Cart"));
+        return this;
     }
 
     private HomePage onHomePage() {

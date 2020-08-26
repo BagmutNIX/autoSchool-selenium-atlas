@@ -1,9 +1,12 @@
 package com.matchers;
 
+import io.qameta.atlas.webdriver.AtlasWebElement;
 import org.hamcrest.Matcher;
 import org.openqa.selenium.WebElement;
 
 public class BaseElementMatchers {
+
+
     private BaseElementMatchers() {
     }
 
@@ -11,11 +14,10 @@ public class BaseElementMatchers {
         return IsElementDisplayedMatcher.isDisplayed();
     }
 
-    public static Matcher<WebElement> hasText(String textMatcher) {
-        return HasTextMatcherOLD.hasText(textMatcher);
+    public static Matcher<AtlasWebElement> hasText(String expectedText) {
+        return HasTextMatcher.hasText(expectedText);
     }
 
-    public static Matcher<WebElement> hasText(String textMatcher, int timeout) {
-        return new HasTextMatcherOLD(textMatcher, timeout);
-    }
+
+
 }

@@ -16,19 +16,20 @@ public class HasTextMatcher extends TypeSafeMatcher<AtlasWebElement> {
 
     @Override
     protected boolean matchesSafely(AtlasWebElement atlasWebElement) {
-        return atlasWebElement.getText().contains(expectedText);
+        return atlasWebElement.getText().equals(expectedText);
     }
 
     @Override
     public void describeTo(Description description) {
     }
 
-    protected void describeMismatchSafely(String item, Description mismatchDescription) {
+    @Override
+    protected void describeMismatchSafely(AtlasWebElement item, Description mismatchDescription) {
         super.describeMismatch(item, mismatchDescription);
     }
 
     @Factory
-    public static Matcher<AtlasWebElement> hasText(final String expectedText) {
+    static Matcher<AtlasWebElement> hasText(final String expectedText) {
         return new HasTextMatcher(expectedText);
     }
 

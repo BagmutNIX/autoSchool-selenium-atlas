@@ -11,4 +11,8 @@ public interface HomePage extends WebPage {
 
     @FindBy("//button[@name='submit_search']")
     AtlasWebElement searchBtn();
+
+
+    @FindBy("//*[@class='shopping_cart']//b")
+    AtlasWebElement cartText();
 }
