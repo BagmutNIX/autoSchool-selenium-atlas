@@ -33,7 +33,7 @@ public class HomePageSteps extends BaseSteps {
     @Step
     public HomePageSteps checkCartText(String expectedText) {
         //String actualText =
-        onHomePage().cartText().should(hasText("Cart"));
+        onHomePage().cartText().should(hasText(expectedText));
         return this;
     }
 
