@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.enums.HomePage.CARTLABEL;
+
 public class UISearchSortCartTest extends BaseTest {
     @Test(dataProvider = "searchQuery")
     public void searchTest(String query) throws InterruptedException, IOException {
@@ -20,7 +22,7 @@ public class UISearchSortCartTest extends BaseTest {
         homePageSteps
                 // 1. Открываем сайт http://automationpractice.com/
                 .openHomePage()
-                .checkCartText("Cartssss");
+                .checkCartText(CARTLABEL.getCartLabel());
                 // 2. В поле поиска вводим ключевое слово query и нажимаем значок поиска (лупу)
  /*               .enterQueryToSearchInput(query)
                 // 3. Проверяем, что над списком продуктов в надписи 'SEARCH' отображается наш поисковый запрос

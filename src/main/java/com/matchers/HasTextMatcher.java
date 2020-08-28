@@ -10,7 +10,7 @@ public class HasTextMatcher extends TypeSafeMatcher<AtlasWebElement> {
 
     private String expectedText;
 
-    public HasTextMatcher(String expectedText) {
+    private HasTextMatcher(String expectedText) {
         this.expectedText = expectedText;
     }
 
