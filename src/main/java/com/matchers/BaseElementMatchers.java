@@ -11,13 +11,15 @@ public class BaseElementMatchers {
     }
 
     public static Matcher<WebElement> isDisplayed() {
-        return IsElementDisplayedMatcher.isDisplayed();
+                return IsElementDisplayedMatcher.isDisplayed();
     }
 
     public static Matcher<AtlasWebElement> hasText(String expectedText) {
         return HasTextMatcher.hasText(expectedText);
     }
 
-
+    public static Matcher<AtlasWebElement> isCountMatch(int size) {
+        return CheckElementsCountMatcher.isCountMatch(size);
+    }
 
 }

@@ -22,9 +22,9 @@ public class UISearchSortCartTest extends BaseTest {
         homePageSteps
                 // 1. Открываем сайт http://automationpractice.com/
                 .openHomePage()
-                .checkCartText(CARTLABEL.getCartLabel());
+                .checkCartText(CARTLABEL.getCartLabel())
                 // 2. В поле поиска вводим ключевое слово query и нажимаем значок поиска (лупу)
- /*               .enterQueryToSearchInput(query)
+                .enterQueryToSearchInput(query)
                 // 3. Проверяем, что над списком продуктов в надписи 'SEARCH' отображается наш поисковый запрос
                 .checkSearchLabel(query)
                 // 4. Открываем дропдаун сортировки и выбираем опцию 'Price: Highest first'
@@ -35,7 +35,7 @@ public class UISearchSortCartTest extends BaseTest {
                 .getNameAndPriceOfFirstproduct(expectedNameAndPrice)
                 // 6. Добавляем первый товар в корзину и проверяем название и цену товара в корзине
                 .addToCart()
-                .checkNameAndPrice(expectedNameAndPrice);*/
+                .checkNameAndPrice(expectedNameAndPrice);
         System.out.println("Expected Product: " + expectedNameAndPrice.toString());
     }
 

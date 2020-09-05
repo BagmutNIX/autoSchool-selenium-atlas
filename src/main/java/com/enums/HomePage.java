@@ -1,7 +1,7 @@
 package com.enums;
 
 public enum HomePage {
-    CARTLABEL("Cartsss");
+    CARTLABEL("Cart");
 
     private final String cartLabel;
 

@@ -6,6 +6,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import static com.matchers.BaseElementMatchers.isCountMatch;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -57,6 +61,9 @@ public class SearchResultsPageSteps extends BaseSteps {
         for (Double aDouble : productPriceSorted) System.out.println(aDouble);
 
         Assert.assertEquals(productPriceSorted, productPrice);
+
+        assertThat(productPrice, hasSize(4));
+        //onSearchResultsPage().productList().should(isCountMatch(4));
 
         return this;
     }
