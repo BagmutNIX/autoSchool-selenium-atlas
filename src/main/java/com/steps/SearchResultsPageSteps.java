@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import static com.matchers.BaseElementMatchers.isDisplayed;
+import static com.matchers.BaseElementMatchers.isCountMatch;
 
 public class SearchResultsPageSteps extends BaseSteps {
 
@@ -21,7 +22,6 @@ public class SearchResultsPageSteps extends BaseSteps {
         super(driver);
     }
 
-    // 3. Проверяем, что над списком продуктов в надписи 'SEARCH' отображается наш поисковый запрос
     @Step
     public SearchResultsPageSteps checkSearchLabel(String query) {
         String searchLabelText = onSearchResultsPage().searchLabel().getText().replaceAll("\"", "").toLowerCase();
@@ -29,7 +29,6 @@ public class SearchResultsPageSteps extends BaseSteps {
         return this;
     }
 
-    // 4. открываем дропдаун сортировки и выбираем опцию 'Price: Highest first'
     @Step
     public SearchResultsPageSteps sortByPriceDesc() {
         onSearchResultsPage().sortDropdown().click();
@@ -37,8 +36,6 @@ public class SearchResultsPageSteps extends BaseSteps {
         return this;
     }
 
-    // 5. проверяем, что элементы отсортированы в соответствии с выбранной опцией (сейчас сортировка идёт по старой
-    // цене - если у товара есть скидка, нужно смотреть на старую цену)
     @Step
     public SearchResultsPageSteps checkSortPricesDesc() {
 
@@ -48,20 +45,14 @@ public class SearchResultsPageSteps extends BaseSteps {
 
         productPrice = productList.stream().map(Product::getPrice).collect(Collectors.toList());
 
-        System.out.println("Product prices: " + productPrice);
-
         List<Double> productPriceSorted = new ArrayList<>(productPrice);
         Collections.sort(productPriceSorted, Collections.reverseOrder());
-
-        System.out.println("Sorted prices:");
-        for (Double aDouble : productPriceSorted) System.out.println(aDouble);
 
         Assert.assertEquals(productPriceSorted, productPrice);
 
         return this;
     }
 
-    // 6. Берем первый из найденных товаров и запоминаем его полное название и цену
     @Step
     public SearchResultsPageSteps getNameAndPriceOfFirstproduct(Map<String, String> nameAndPrice) {
         List<Product> productList = onSearchResultsPage().productList();
@@ -71,7 +62,12 @@ public class SearchResultsPageSteps extends BaseSteps {
         return this;
     }
 
-    // 7. добавляем его в корзину
+    @Step
+    public SearchResultsPageSteps checkCountOfResults() {
+        onSearchResultsPage().productList().should(isCountMatch(5));
+        return this;
+    }
+
     @Step
     public CartPageSteps addToCart() throws IOException {
         List<Product> productList = onSearchResultsPage().productList();

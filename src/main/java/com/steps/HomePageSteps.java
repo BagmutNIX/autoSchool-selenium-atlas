@@ -6,13 +6,14 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
+import static com.matchers.BaseElementMatchers.hasText;
+
 public class HomePageSteps extends BaseSteps {
 
     public HomePageSteps(WebDriver driver) throws IOException {
         super(driver);
     }
 
-    // 1. Открываем сайт http://automationpractice.com/
     @Step
     public HomePageSteps openHomePage() {
         //baseUrl = "http://automationpractice.com/index.php";
@@ -20,7 +21,14 @@ public class HomePageSteps extends BaseSteps {
         return this;
     }
 
-    // 2. В поле поиска вводим ключевое слово query и нажимаем значок поиска (лупу)
+    @Step
+    public HomePageSteps checkTextOnTabs() {
+        onHomePage().womenTab().should(hasText("WOMEN"));
+        onHomePage().dressesTab().should(hasText("DRESSES"));
+        onHomePage().tshirtsTab().should(hasText("T-SHIRTS"));
+        return this;
+    }
+
     @Step
     public SearchResultsPageSteps enterQueryToSearchInput(String query) throws IOException {
         onHomePage().searchInput().sendKeys(query);

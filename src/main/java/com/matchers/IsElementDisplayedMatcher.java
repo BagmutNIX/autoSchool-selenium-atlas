@@ -22,16 +22,6 @@ public class IsElementDisplayedMatcher extends TypeSafeMatcher<WebElement> {
 
     @Override
     protected boolean matchesSafely(WebElement item) {
-        long searchTime = System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(timeout);
-        boolean isDisplayed = false;
-        while (System.currentTimeMillis() <= searchTime && !isDisplayed) {
-            try {
-                Thread.sleep(200);
-                isDisplayed = item.isDisplayed();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
         return item.isDisplayed();
     }
 
@@ -45,8 +35,4 @@ public class IsElementDisplayedMatcher extends TypeSafeMatcher<WebElement> {
         return new IsElementDisplayedMatcher();
     }
 
-    @Factory
-    public static Matcher<WebElement> isDisplayed(int timeout) {
-        return new IsElementDisplayedMatcher(timeout);
-    }
 }
