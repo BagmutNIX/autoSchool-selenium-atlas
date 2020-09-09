@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import static com.matchers.BaseElementMatchers.isCountMatch;
+import static com.matchers.BaseElementMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 
@@ -16,8 +16,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import static com.matchers.BaseElementMatchers.isDisplayed;
 
 public class SearchResultsPageSteps extends BaseSteps {
 
@@ -62,9 +60,14 @@ public class SearchResultsPageSteps extends BaseSteps {
 
         Assert.assertEquals(productPriceSorted, productPrice);
 
-        assertThat(productPrice, hasSize(4));
-        //onSearchResultsPage().productList().should(isCountMatch(4));
+        return this;
+    }
 
+    @Step
+    public SearchResultsPageSteps checkCountInList() {
+        //assertThat(onSearchResultsPage().productList(), hasSize(4));
+        //onSearchResultsPage().productList().should(isCountMatch(4));
+        onSearchResultsPage().productList().should(checkCollectionCount(4));
         return this;
     }
 

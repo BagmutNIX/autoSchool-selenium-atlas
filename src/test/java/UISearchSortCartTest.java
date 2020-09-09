@@ -24,18 +24,19 @@ public class UISearchSortCartTest extends BaseTest {
                 .openHomePage()
                 .checkCartText(CARTLABEL.getCartLabel())
                 // 2. В поле поиска вводим ключевое слово query и нажимаем значок поиска (лупу)
-                .enterQueryToSearchInput(query)
+                .enterQueryToSearchInput(query);
                 // 3. Проверяем, что над списком продуктов в надписи 'SEARCH' отображается наш поисковый запрос
-                .checkSearchLabel(query)
+                //.checkSearchLabel(query)
                 // 4. Открываем дропдаун сортировки и выбираем опцию 'Price: Highest first'
-                .sortByPriceDesc()
+                //.sortByPriceDesc()
                 // 5. Проверяем, что элементы отсортированы в соответствии с выбранной опцией (сейчас сортировка идёт
                 // по старой цене - если у товара есть скидка, нужно смотреть на старую цену)
-                .checkSortPricesDesc()
-                .getNameAndPriceOfFirstproduct(expectedNameAndPrice)
+                //.checkSortPricesDesc
+                //.checkCountInList();
+                //.getNameAndPriceOfFirstproduct(expectedNameAndPrice)
                 // 6. Добавляем первый товар в корзину и проверяем название и цену товара в корзине
-                .addToCart()
-                .checkNameAndPrice(expectedNameAndPrice);
+                //.addToCart()
+                //.checkNameAndPrice(expectedNameAndPrice);
         System.out.println("Expected Product: " + expectedNameAndPrice.toString());
     }
 

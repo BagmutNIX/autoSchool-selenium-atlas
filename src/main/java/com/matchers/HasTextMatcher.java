@@ -16,7 +16,7 @@ public class HasTextMatcher extends TypeSafeMatcher<AtlasWebElement> {
 
     @Override
     protected boolean matchesSafely(AtlasWebElement atlasWebElement) {
-        return atlasWebElement.getText().equals(expectedText);
+        return atlasWebElement.getText() == expectedText;
     }
 
     @Override

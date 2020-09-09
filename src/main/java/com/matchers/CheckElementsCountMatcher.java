@@ -19,14 +19,17 @@ public class CheckElementsCountMatcher extends TypeSafeMatcher<AtlasWebElement> 
 
     @Override
     protected boolean matchesSafely(AtlasWebElement elementsCollection) {
-        //Assert.assertEquals(elementsCollection.getSize(), expectedSize);
-        //elementsCollection.stream().count().
-        // size.equal*/
         return elementsCollection.getSize().equals(expectedSize);
     }
 
     @Override
     public void describeTo(Description description) {
+        description.appendText("Expected is: ").appendValue(expectedSize);
+    }
+
+    @Override
+    public void describeMismatchSafely(AtlasWebElement elementsCollection, Description mismatchDescription) {
+        mismatchDescription.appendText("But actual was ").appendValue(elementsCollection.getSize());
     }
 
     @Factory

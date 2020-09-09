@@ -1,6 +1,7 @@
 package com.matchers;
 
 import io.qameta.atlas.webdriver.AtlasWebElement;
+import io.qameta.atlas.webdriver.ElementsCollection;
 import org.hamcrest.Matcher;
 import org.openqa.selenium.WebElement;
 
@@ -20,6 +21,10 @@ public class BaseElementMatchers {
 
     public static Matcher<AtlasWebElement> isCountMatch(int size) {
         return CheckElementsCountMatcher.isCountMatch(size);
+    }
+
+    public static Matcher<ElementsCollection> checkCollectionCount(int size) {
+        return CheckCollectionSizeMatcher.checkCollectionCount(size);
     }
 
 }
