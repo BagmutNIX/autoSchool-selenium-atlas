@@ -24,7 +24,8 @@ public class UISearchSortCartTest extends BaseTest {
                 .openHomePage()
                 .checkCartText(CARTLABEL.getCartLabel())
                 // 2. В поле поиска вводим ключевое слово query и нажимаем значок поиска (лупу)
-                .enterQueryToSearchInput(query);
+                .enterQueryToSearchInput(query)
+                .checkCountInList();
                 // 3. Проверяем, что над списком продуктов в надписи 'SEARCH' отображается наш поисковый запрос
                 //.checkSearchLabel(query)
                 // 4. Открываем дропдаун сортировки и выбираем опцию 'Price: Highest first'
