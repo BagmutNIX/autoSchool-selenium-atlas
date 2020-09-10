@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class UICheckTextOnHomePageTest extends BaseTest {
 
-    @Test
+    @Test(description = "This test just demonstrates working of TextMatcher:")
     public void checkTextOnHomePage() throws IOException {
 
         HomePageSteps homePageSteps = new HomePageSteps(driver);

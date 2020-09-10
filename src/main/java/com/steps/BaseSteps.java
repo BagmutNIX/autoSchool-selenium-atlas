@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
 import java.util.Properties;
+//import ru.qatools.properties.Property;
 
 public class BaseSteps {
 
