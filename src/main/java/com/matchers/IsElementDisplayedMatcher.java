@@ -6,18 +6,12 @@ import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 import org.openqa.selenium.WebElement;
 
-import java.util.concurrent.TimeUnit;
-
 
 public class IsElementDisplayedMatcher extends TypeSafeMatcher<WebElement> {
 
     private int timeout = 10;
 
     public IsElementDisplayedMatcher() {
-    }
-
-    public IsElementDisplayedMatcher(int timeout) {
-        this.timeout = timeout;
     }
 
     @Override

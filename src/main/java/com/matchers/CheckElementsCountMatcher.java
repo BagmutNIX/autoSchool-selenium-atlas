@@ -1,13 +1,10 @@
 package com.matchers;
 
-import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.ElementsCollection;
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 public class CheckElementsCountMatcher extends TypeSafeMatcher<ElementsCollection> {
 
