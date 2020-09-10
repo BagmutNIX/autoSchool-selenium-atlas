@@ -1,12 +1,15 @@
 package com.matchers;
 
+import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.ElementsCollection;
 import org.hamcrest.Description;
 import org.hamcrest.Factory;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
-public class CheckElementsCountMatcher extends TypeSafeMatcher<ElementsCollection> { //extends FeatureMatcher<ElementsCollection>
+public class CheckElementsCountMatcher extends TypeSafeMatcher<ElementsCollection> {
 
     private int expectedSize;
 
@@ -16,11 +19,6 @@ public class CheckElementsCountMatcher extends TypeSafeMatcher<ElementsCollectio
 
     @Override
     protected boolean matchesSafely(ElementsCollection elementsCollection) {
-        //Assert.assertEquals(elementsCollection.size(), expectedSize);
-        //List<ElementsCollection> list = elementsCollection;
-        //list.getSize().equals(expectedSize);
-        //list.size()
-        // size.equal
         return elementsCollection.size() == expectedSize;
     }
 
@@ -35,7 +33,7 @@ public class CheckElementsCountMatcher extends TypeSafeMatcher<ElementsCollectio
     }
 
     @Factory
-    static Matcher<ElementsCollection> checkCollectionCount(int size) {
+    static Matcher<ElementsCollection> isCountMatch(int size) {
         return new CheckElementsCountMatcher(size);
     }
 }

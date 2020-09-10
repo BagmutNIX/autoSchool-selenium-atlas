@@ -18,6 +18,6 @@ public class BaseElementMatchers {
     }
 
     public static Matcher<ElementsCollection> isCountMatch(int size) {
-        return CheckElementsCountMatcher.checkCollectionCount(size);
+        return CheckElementsCountMatcher.isCountMatch(size);
     }
 }
