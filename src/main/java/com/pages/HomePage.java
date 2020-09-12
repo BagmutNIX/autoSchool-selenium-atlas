@@ -21,4 +21,16 @@ public interface HomePage extends WebPage {
 
     @FindBy("//li[3]/a[@title='T-shirts']")
     AtlasWebElement tshirtsTab();
+
+    @FindBy("//a[@class='login']")
+    AtlasWebElement loginBtn();
+
+    @FindBy("//input[@id='email']")
+    AtlasWebElement loginInput();
+
+    @FindBy("//input[@id='passwd']")
+    AtlasWebElement paswdInput();
+
+    @FindBy("//button[@id='SubmitLogin']")
+    AtlasWebElement submitLoginBtn();
 }

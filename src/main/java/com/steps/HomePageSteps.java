@@ -3,6 +3,7 @@ package com.steps;
 import com.pages.HomePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
+import properties.MainProperties;
 
 import java.io.IOException;
 
@@ -26,6 +27,17 @@ public class HomePageSteps extends BaseSteps {
         onHomePage().womenTab().should(hasText("WOMEN"));
         onHomePage().dressesTab().should(hasText("DRESSES"));
         onHomePage().tshirtsTab().should(hasText("T-SHIRT"));
+        return this;
+    }
+
+    @Step
+    public HomePageSteps login() {
+        String user1Login = MainProperties.props.user1Login();
+        String user1Passwd = MainProperties.props.user1Password();
+        onHomePage().loginBtn().click();
+        onHomePage().loginInput().sendKeys(user1Login);
+        onHomePage().paswdInput().sendKeys(user1Passwd);
+        onHomePage().submitLoginBtn().click();
         return this;
     }
 
