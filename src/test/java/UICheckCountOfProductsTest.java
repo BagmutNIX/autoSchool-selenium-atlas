@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class UICheckCountOfProductsTest extends BaseTest {
-    @Test(description = "This test just demonstrates working of CheckElementsCountMatcher:")
+    @Test(description = "This test just demonstrates the usage of CheckElementsCountMatcher:")
     public void checkCountInProductList() throws IOException {
 
         HomePageSteps homePageSteps = new HomePageSteps(driver);

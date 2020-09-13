@@ -3,13 +3,11 @@ package com.steps;
 import io.qameta.atlas.core.Atlas;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import io.qameta.atlas.webdriver.WebPage;
+import main.properties.MainProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
-import java.util.Properties;
-import properties.MainProperties;
-//import ru.qatools.properties.Property;
 
 public class BaseSteps {
 
@@ -27,12 +25,8 @@ public class BaseSteps {
 
     public BaseSteps(WebDriver driver) throws IOException {
         this.driver = driver;
-        Properties properties = new Properties();
-        // вычитываем файл *.base.properties из директории <root>/src/main/java/resources
-        properties.load(this.getClass().getClassLoader().getResourceAsStream("base.properties"));
-        baseUrl = properties.getProperty("baseUrl");
+        baseUrl = MainProperties.props.baseUrl();
         atlas = new Atlas(new WebDriverConfiguration(driver));
-        //getAtlas().create(getDriver(), pageClass);
         actions = new Actions(driver);
     }
 

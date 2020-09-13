@@ -3,7 +3,8 @@ package com.steps;
 import com.pages.HomePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import properties.MainProperties;
+import org.testng.Assert;
+import main.properties.MainProperties;
 
 import java.io.IOException;
 
@@ -34,10 +35,13 @@ public class HomePageSteps extends BaseSteps {
     public HomePageSteps login() {
         String user1Login = MainProperties.props.user1Login();
         String user1Passwd = MainProperties.props.user1Password();
+        String expectedName = MainProperties.props.user1Name();
         onHomePage().loginBtn().click();
         onHomePage().loginInput().sendKeys(user1Login);
         onHomePage().paswdInput().sendKeys(user1Passwd);
         onHomePage().submitLoginBtn().click();
+        String actualName = onHomePage().userName().getText();
+        Assert.assertEquals(actualName, expectedName);
         return this;
     }
 

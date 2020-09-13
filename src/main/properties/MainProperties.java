@@ -1,4 +1,4 @@
-package properties;
+package main.properties;
 
 import ru.qatools.properties.Property;
 import ru.qatools.properties.PropertyLoader;
@@ -15,6 +15,9 @@ public interface MainProperties {
 
     @Property("user1.password")
     String user1Password();
+
+    @Property("user1.name")
+    String user1Name();
 
     MainProperties props = PropertyLoader.newInstance().populate(MainProperties.class);
 }

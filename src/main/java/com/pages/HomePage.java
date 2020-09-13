@@ -33,4 +33,7 @@ public interface HomePage extends WebPage {
 
     @FindBy("//button[@id='SubmitLogin']")
     AtlasWebElement submitLoginBtn();
+
+    @FindBy("//a[@class='account']")
+    AtlasWebElement userName();
 }

@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class UICheckLoginTest extends BaseTest {
 
-    @Test(description = "This test just demonstrates working of Properties:")
-    public void checkTextOnHomePage() throws IOException {
+    @Test(description = "This test just demonstrates the usage of Properties:")
+    public void checkLogin() throws IOException {
 
         HomePageSteps homePageSteps = new HomePageSteps(driver);
 
