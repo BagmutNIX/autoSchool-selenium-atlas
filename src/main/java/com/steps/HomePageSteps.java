@@ -4,7 +4,7 @@ import com.pages.HomePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import main.properties.MainProperties;
+import com.properties.MainProperties;
 
 import java.io.IOException;
 

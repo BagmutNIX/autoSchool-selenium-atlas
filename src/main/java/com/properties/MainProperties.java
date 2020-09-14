@@ -1,4 +1,4 @@
-package main.properties;
+package com.properties;
 
 import ru.qatools.properties.Property;
 import ru.qatools.properties.PropertyLoader;

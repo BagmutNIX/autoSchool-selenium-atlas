@@ -3,7 +3,7 @@ package com.steps;
 import io.qameta.atlas.core.Atlas;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import io.qameta.atlas.webdriver.WebPage;
-import main.properties.MainProperties;
+import com.properties.MainProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
