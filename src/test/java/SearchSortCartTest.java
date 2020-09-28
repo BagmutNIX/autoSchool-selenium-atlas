@@ -1,5 +1,4 @@
 import com.core.BaseTest;
-import com.steps.HomePageSteps;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -7,11 +6,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UISearchSortCartTest extends BaseTest {
+public class SearchSortCartTest extends BaseTest {
     @Test(dataProvider = "searchQuery")
     public void searchTest(String query) throws IOException {
-
-        HomePageSteps homePageSteps = new HomePageSteps(driver);
 
         Map<String, String> expectedNameAndPrice = new HashMap<>();
 

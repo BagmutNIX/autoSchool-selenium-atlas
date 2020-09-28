@@ -21,12 +21,12 @@ public class CheckElementsCountMatcher extends TypeSafeMatcher<ElementsCollectio
 
     @Override
     public void describeTo(Description description) {
-        description.appendText("Expected unfortunately is ").appendValue(expectedSize);
+        description.appendText("Expected is ").appendValue(expectedSize);
     }
 
     @Override
     public void describeMismatchSafely(ElementsCollection actualCollection, Description mismatchDescription) {
-        mismatchDescription.appendText("But Actual was ").appendValue(actualCollection.size());
+        mismatchDescription.appendText("but Actual was ").appendValue(actualCollection.size());
     }
 
     @Factory

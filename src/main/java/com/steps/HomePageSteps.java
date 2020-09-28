@@ -33,15 +33,15 @@ public class HomePageSteps extends BaseSteps {
 
     @Step
     public HomePageSteps login() {
-        String user1Login = MainProperties.props.user1Login();
+        /*String user1Login = MainProperties.props.user1Login();
         String user1Passwd = MainProperties.props.user1Password();
-        String expectedName = MainProperties.props.user1Name();
+        String expectedName = MainProperties.props.user1Name();*/
         onHomePage().loginBtn().click();
-        onHomePage().loginInput().sendKeys(user1Login);
-        onHomePage().paswdInput().sendKeys(user1Passwd);
+        onHomePage().loginInput().sendKeys( MainProperties.props.user1Login());
+        onHomePage().paswdInput().sendKeys(MainProperties.props.user1Password());
         onHomePage().submitLoginBtn().click();
         String actualName = onHomePage().userName().getText();
-        Assert.assertEquals(actualName, expectedName);
+        Assert.assertEquals(actualName, MainProperties.props.user1Name());
         return this;
     }
 

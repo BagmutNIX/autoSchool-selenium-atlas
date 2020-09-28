@@ -1,11 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="UI Tests" verbose="1">
-
     <test name="NIX autoschool">
         <packages>
             <package name=".*"/>
         </packages>
     </test>
-
 </suite>
