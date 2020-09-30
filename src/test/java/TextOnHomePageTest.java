@@ -8,7 +8,7 @@ public class TextOnHomePageTest extends BaseTest {
     @Test(description = "This test just demonstrates the usage of TextMatcher:")
     public void checkTextOnHomePage() throws IOException {
 
-        homePageSteps
+        getHomePageSteps()
                 .openHomePage()
                 .checkTextOnTabs();
     }

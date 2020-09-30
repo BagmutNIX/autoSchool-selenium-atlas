@@ -11,13 +11,15 @@ import java.io.IOException;
 
 public abstract class BaseTest {
     protected WebDriver driver;
-    public HomePageSteps homePageSteps;
+
+    public HomePageSteps getHomePageSteps() throws IOException {
+        return new HomePageSteps(driver);
+    }
 
     @BeforeMethod()
-    public void setUp() throws IOException {
+    public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        homePageSteps = new HomePageSteps(driver);
     }
 
     @AfterMethod(alwaysRun = true)

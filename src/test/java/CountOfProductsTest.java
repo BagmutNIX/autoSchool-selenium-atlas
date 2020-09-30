@@ -7,7 +7,7 @@ public class CountOfProductsTest extends BaseTest {
     @Test(description = "This test just demonstrates the usage of CheckElementsCountMatcher:")
     public void checkCountInProductList() throws IOException {
 
-        homePageSteps
+        getHomePageSteps()
                 .openHomePage()
                 .enterQueryToSearchInput("Summer")
                 .checkCountOfResults();

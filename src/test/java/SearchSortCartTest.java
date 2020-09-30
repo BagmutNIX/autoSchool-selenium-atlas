@@ -12,7 +12,7 @@ public class SearchSortCartTest extends BaseTest {
 
         Map<String, String> expectedNameAndPrice = new HashMap<>();
 
-        homePageSteps
+        getHomePageSteps()
                 .openHomePage()
                 .enterQueryToSearchInput(query)
                 .checkSearchLabel(query)
