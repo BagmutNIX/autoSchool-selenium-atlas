@@ -3,12 +3,11 @@ package com.steps;
 import com.pages.HomePage;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import com.properties.MainProperties;
 
 import java.io.IOException;
 
 import static com.matchers.BaseElementMatchers.hasText;
+import static com.properties.MainProperties.props;
 
 public class HomePageSteps extends BaseSteps {
 
@@ -33,15 +32,11 @@ public class HomePageSteps extends BaseSteps {
 
     @Step
     public HomePageSteps login() {
-        /*String user1Login = MainProperties.props.user1Login();
-        String user1Passwd = MainProperties.props.user1Password();
-        String expectedName = MainProperties.props.user1Name();*/
         onHomePage().loginBtn().click();
-        onHomePage().loginInput().sendKeys( MainProperties.props.user1Login());
-        onHomePage().paswdInput().sendKeys(MainProperties.props.user1Password());
+        onHomePage().loginInput().sendKeys(props.user1Login());
+        onHomePage().paswdInput().sendKeys(props.user1Password());
         onHomePage().submitLoginBtn().click();
-        String actualName = onHomePage().userName().getText();
-        Assert.assertEquals(actualName, MainProperties.props.user1Name());
+        onHomePage().userName().should(hasText(props.user1Name()));
         return this;
     }
 

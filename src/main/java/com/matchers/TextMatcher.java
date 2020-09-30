@@ -22,12 +22,14 @@ public class TextMatcher extends TypeSafeMatcher<AtlasWebElement> {
 
     @Override
     public void describeTo(Description description) {
-        description.appendText("Expected text is ").appendValue(expectedText);
+        //description.appendValue(expectedText);
+        //appendText("text is ").
     }
 
     @Override
     protected void describeMismatchSafely(AtlasWebElement item, Description mismatchDescription) {
-        mismatchDescription.appendText("Actual text was ").appendValue(item.getText());
+        mismatchDescription.appendValue(item.getText());
+        //.appendText("Actual text was ")
     }
 
     @Factory
