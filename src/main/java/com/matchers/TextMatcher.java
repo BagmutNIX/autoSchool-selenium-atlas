@@ -17,7 +17,7 @@ public class TextMatcher extends TypeSafeMatcher<AtlasWebElement> {
 
     @Override
     protected boolean matchesSafely(AtlasWebElement atlasWebElement) {
-        return atlasWebElement.getText().equals(expectedText);
+        return atlasWebElement.getText().replaceAll("\\p{javaSpaceChar}", " ").equals(expectedText);
     }
 
     @Override
