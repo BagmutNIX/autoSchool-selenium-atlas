@@ -54,34 +54,16 @@
             <version>${qatools.properties.version}</version>
         </dependency>
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.assertj/assertj-swing-testng -->
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-swing-testng</artifactId>
-            <version>3.9.2</version>
-        </dependency>
-        <dependency>
             <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
             <version>2.1</version>
         </dependency>
         <dependency>
-            <!-- https://mvnrepository.com/artifact/log4j/log4j -->
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.8.0-beta1</version>
-        </dependency>
-       <dependency>
             <groupId>org.exparity</groupId>
             <artifactId>hamcrest-date</artifactId>
             <version>2.0.5</version>
         </dependency>
-
         <dependency>
             <groupId>com.assertthat</groupId>
             <artifactId>selenium-shutterbug</artifactId>
@@ -96,13 +78,10 @@
     </dependencies>
     <build>
         <plugins>
-               <plugin>
+            <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version>
-                <configuration>
-                    <reportVersion>2.10.0</reportVersion>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -123,12 +102,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <systemProperties>
-                        <property>
-                            <name>allure.results.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
-                        </property>
-                    </systemProperties>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
