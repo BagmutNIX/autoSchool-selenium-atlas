@@ -32,7 +32,6 @@
             <artifactId>atlas-core</artifactId>
             <version>1.8.0</version>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/io.qameta.atlas/atlas-webdriver -->
         <dependency>
             <groupId>io.qameta.atlas</groupId>
@@ -61,12 +60,6 @@
             <version>3.9.2</version>
         </dependency>
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
-        </dependency>
-        <dependency>
             <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
@@ -83,36 +76,12 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.8.0-beta1</version>
         </dependency>
-        <dependency>
-            <!-- https://mvnrepository.com/artifact/com.jcraft/jsch
-         JSch is a pure Java implementation of SSH2 -->
-            <groupId>com.jcraft</groupId>
-            <artifactId>jsch</artifactId>
-            <version>0.1.55</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.15</version>
-        </dependency>
-        <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
-            <version>3.3.0</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.json/json -->
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20180813</version>
-        </dependency>
-        <dependency>
+       <dependency>
             <groupId>org.exparity</groupId>
             <artifactId>hamcrest-date</artifactId>
             <version>2.0.5</version>
         </dependency>
+
         <dependency>
             <groupId>com.assertthat</groupId>
             <artifactId>selenium-shutterbug</artifactId>
@@ -123,12 +92,6 @@
                     <artifactId>selenium-java</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml — dependency used for XLSX files -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>4.1.0</version>
         </dependency>
     </dependencies>
     <build>
@@ -160,14 +123,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <!--<parallel>classes</parallel>
-                    <threadCount>1</threadCount>-->
-                    <!--<includes>
-                        <include>**/Test*.java</include>
-                        <include>**/*Test.java</include>
-                        <include>**/*Tests.java</include>
-                        <include>**/*TestCase.java</include>
-                    </includes>-->
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
@@ -188,5 +143,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
