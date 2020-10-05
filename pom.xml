@@ -26,12 +26,6 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure.testng.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.qameta.atlas/atlas-core -->
-        <dependency>
-            <groupId>io.qameta.atlas</groupId>
-            <artifactId>atlas-core</artifactId>
-            <version>1.8.0</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/io.qameta.atlas/atlas-webdriver -->
         <dependency>
             <groupId>io.qameta.atlas</groupId>

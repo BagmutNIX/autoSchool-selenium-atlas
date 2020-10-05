@@ -26,7 +26,7 @@ public class HomePageSteps extends BaseSteps {
     public HomePageSteps checkTextOnTabs() {
         onHomePage().womenTab().should(hasText("WOMEN"));
         onHomePage().dressesTab().should(hasText("DRESSES"));
-        onHomePage().tshirtsTab().should(hasText("T-SHIRT"));
+        onHomePage().tshirtsTab().should(hasText("T-SHIRTS"));
         return this;
     }
 

@@ -2,11 +2,11 @@
 
 <suite name="UI Tests" verbose="1">
     <test name="NIX autoschool">
-<!--        <packages>
+        <packages>
             <package name=".*"/>
-        </packages>-->
-        <classes>
+        </packages>
+<!--        <classes>
             <class name="LoginTest"/>
-        </classes>
+        </classes>-->
     </test>
 </suite>
