@@ -17,7 +17,6 @@
         <qatools.properties.version>2.0.RC6</qatools.properties.version>
         <testng.version>6.14.3</testng.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>io.qameta.allure</groupId>
