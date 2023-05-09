@@ -16,7 +16,7 @@
         <allure.testng.version>2.10.0</allure.testng.version>
         <allure-report.version>${allure.testng.version}</allure-report.version>
         <qatools.properties.version>2.0.RC6</qatools.properties.version>
-        <testng.version>6.14.3</testng.version>
+        <testng.version>7.5.1</testng.version>
     </properties>
 
     <build>
